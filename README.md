@@ -233,16 +233,16 @@ The system includes robust error handling:
 npm install -g pm2
 
 # Start scheduler with PM2
-pm2 start scheduler.js --name flotilla-scheduler
+pm2 start scheduler.js --name flotilla-freedom-scheduler
 
 # View logs
-pm2 logs flotilla-scheduler
+pm2 logs flotilla-freedom-scheduler
 
 # Stop
-pm2 stop flotilla-scheduler
+pm2 stop flotilla-freedom-scheduler
 
 # Restart
-pm2 restart flotilla-scheduler
+pm2 restart flotilla-freedom-scheduler
 
 # Set to start on boot
 pm2 startup

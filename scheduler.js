@@ -39,7 +39,7 @@ async function executeScheduledTask() {
  * Starts the scheduler
  */
 function startScheduler() {
-  logger.info('🚀 Starting Flotilla Sumud Scheduler');
+  logger.info('🚀 Starting Freedom Flotilla Coalition Scheduler');
   logger.info('⏰ Schedule: Every hour on the hour (0 * * * *)');
   logger.info('📧 Recipient: From environment configuration');
   logger.info('Press Ctrl+C to stop\n');
@@ -97,7 +97,7 @@ if (require.main === module) {
     runManually();
   } else if (args.includes('--help') || args.includes('-h')) {
     console.log(`
-Flotilla Sumud Scheduler
+Freedom Flotilla Coalition Scheduler
 
 Usage:
   node scheduler.js           Start the hourly scheduler
