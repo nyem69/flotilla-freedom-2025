@@ -1,0 +1,26 @@
+========================================
+GLOBAL SUMUD FLOTILLA TRACKER
+Hourly Vessel Monitoring Report
+========================================
+
+REPORT SUMMARY
+--------------
+Total Vessels:     {{TOTAL_VESSELS}}
+Sailing:           {{SAILING_COUNT}}
+Intercepted:       {{INTERCEPTED_COUNT}}
+
+Report Generated:  {{REPORT_TIMESTAMP}}
+Most Recent Update: {{MOST_RECENT_UPDATE}}
+
+========================================
+VESSEL DETAILS
+========================================
+
+{{VESSEL_TEXT_ROWS}}
+
+========================================
+Data Source: https://flotilla-orpin.vercel.app/
+
+This is an automated hourly report monitoring vessel positions and status.
+Generated at {{REPORT_TIMESTAMP}} (Malaysia Time - UTC+8)
+========================================

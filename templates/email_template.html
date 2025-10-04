@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Sumud Flotilla - Hourly Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .summary {
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .summary h2 {
+            margin: 0 0 20px 0;
+            font-size: 20px;
+            color: #495057;
+        }
+        .stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .stat-card.sailing {
+            border-left-color: #28a745;
+        }
+        .stat-card.intercepted {
+            border-left-color: #dc3545;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #212529;
+        }
+        .content {
+            padding: 30px;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        th {
+            background-color: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            white-space: nowrap;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .status.sailing {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status.intercepted {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .status.docked {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        .footer {
+            padding: 20px 30px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            font-size: 12px;
+            color: #6c757d;
+            text-align: center;
+        }
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .timestamp {
+            font-family: 'Courier New', monospace;
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        @media (max-width: 768px) {
+            .stats {
+                flex-direction: column;
+            }
+            .stat-card {
+                min-width: 100%;
+            }
+            table {
+                font-size: 12px;
+            }
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚢 Freedom Flotilla Coalition Tracker</h1>
+            <p>Hourly Vessel Monitoring Report</p>
+        </div>
+
+        <div class="summary">
+            <h2>Report Summary</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-label">Total Vessels</div>
+                    <div class="stat-value">{{TOTAL_VESSELS}}</div>
+                </div>
+                <div class="stat-card sailing">
+                    <div class="stat-label">Sailing</div>
+                    <div class="stat-value">{{SAILING_COUNT}}</div>
+                </div>
+                <div class="stat-card intercepted">
+                    <div class="stat-label">Intercepted</div>
+                    <div class="stat-value">{{INTERCEPTED_COUNT}}</div>
+                </div>
+            </div>
+            <p style="margin-top: 20px; font-size: 14px;">
+                <strong>Report Generated:</strong>
+                <span class="timestamp">{{REPORT_TIMESTAMP}}</span>
+            </p>
+            <p style="margin-top: 10px; font-size: 14px;">
+                <strong>Most Recent Update:</strong>
+                <span class="timestamp">{{MOST_RECENT_UPDATE}}</span>
+            </p>
+        </div>
+
+        <div class="content">
+            <h2 style="margin: 0 0 20px 0; font-size: 20px; color: #495057;">Vessel Details</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Vessel Name</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th>Last Update (MYT)</th>
+                            <th>Speed</th>
+                            <th>Distance to Gaza</th>
+                            <th>ETA to Gaza</th>
+                            <th>Position</th>
+                            <th>Course</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{VESSEL_ROWS}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>
+                Data source: <a href="https://flotilla-orpin.vercel.app/tmtg-ffc-2025-09" target="_blank">Freedom Flotilla Coalition Tracker</a>
+            </p>
+            <p style="margin-top: 10px;">
+                This is an automated hourly report monitoring vessel positions, status, and estimated arrival times.
+            </p>
+            <p style="margin-top: 10px; opacity: 0.7;">
+                Generated at {{REPORT_TIMESTAMP}} (Malaysia Time - UTC+8)
+            </p>
+        </div>
+    </div>
+</body>
+</html>
