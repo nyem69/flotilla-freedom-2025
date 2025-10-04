@@ -4,9 +4,10 @@ Automated monitoring and hourly reporting system for the Global Sumud Flotilla v
 
 ## Email Report Example
 
-![Email Report Example](Flotilla-Sumud-Report-20251002-120836-MYT.png)
+![Email Report Example](Screenshot-2025-10-04-at-10.02.28.png)
 
 *Example of hourly email report showing vessel tracking with distance to Gaza*
+
 
 ## Features
 
@@ -21,6 +22,11 @@ Automated monitoring and hourly reporting system for the Global Sumud Flotilla v
 - 🔄 **Retry Logic**: Automatic retry with exponential backoff for resilience
 - 📝 **Comprehensive Logging**: Detailed logs for debugging and monitoring
 
+## Related repositories
+
+- [Flotilla Sumud 2025](https://github.com/nyem69/flotilla-sumud-2025)
+- [Flotilla Freedom 2025](https://github.com/nyem69/flotilla-freedom-2025)
+
 ## Installation
 
 ### Prerequisites
@@ -32,8 +38,8 @@ Automated monitoring and hourly reporting system for the Global Sumud Flotilla v
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/nyem69/flotilla-sumud-2025.git
-   cd flotilla-sumud-2025
+   git clone https://github.com/nyem69/flotilla-freedom-2025.git
+   cd flotilla-freedom-2025
    ```
 
 2. **Install dependencies**
