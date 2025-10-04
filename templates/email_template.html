@@ -174,20 +174,25 @@
 
         <div class="summary">
             <h2>Report Summary</h2>
-            <div class="stats">
-                <div class="stat-card">
-                    <div class="stat-label">Total Vessels</div>
-                    <div class="stat-value">{{TOTAL_VESSELS}}</div>
-                </div>
-                <div class="stat-card sailing">
-                    <div class="stat-label">Sailing</div>
-                    <div class="stat-value">{{SAILING_COUNT}}</div>
-                </div>
-                <div class="stat-card intercepted">
-                    <div class="stat-label">Intercepted</div>
-                    <div class="stat-value">{{INTERCEPTED_COUNT}}</div>
-                </div>
-            </div>
+
+            <!-- Status cards using table for better email client compatibility -->
+            <table width="100%" cellpadding="0" cellspacing="10" style="margin: 20px 0;">
+                <tr>
+                    <td style="padding: 15px; background: white; border-radius: 6px; border-left: 4px solid #667eea; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <div style="font-size: 12px; color: #6c757d; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px;">TOTAL VESSELS</div>
+                        <div style="font-size: 28px; font-weight: 700; color: #212529;">{{TOTAL_VESSELS}}</div>
+                    </td>
+                    <td style="padding: 15px; background: white; border-radius: 6px; border-left: 4px solid #28a745; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <div style="font-size: 12px; color: #6c757d; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px;">SAILING</div>
+                        <div style="font-size: 28px; font-weight: 700; color: #212529;">{{SAILING_COUNT}}</div>
+                    </td>
+                    <td style="padding: 15px; background: white; border-radius: 6px; border-left: 4px solid #dc3545; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <div style="font-size: 12px; color: #6c757d; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px;">INTERCEPTED</div>
+                        <div style="font-size: 28px; font-weight: 700; color: #212529;">{{INTERCEPTED_COUNT}}</div>
+                    </td>
+                </tr>
+            </table>
+
             <p style="margin-top: 20px; font-size: 14px;">
                 <strong>Report Generated:</strong>
                 <span class="timestamp">{{REPORT_TIMESTAMP}}</span>
