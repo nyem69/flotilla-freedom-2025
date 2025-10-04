@@ -286,6 +286,13 @@ function calculateSummary(vessels) {
 async function saveData(reportData) {
   const dataDir = path.join(__dirname, '..', 'data');
 
+  // Create data directory if it doesn't exist
+  try {
+    await fs.mkdir(dataDir, { recursive: true });
+  } catch (error) {
+    // Directory already exists, ignore error
+  }
+
   // Save latest data
   const latestPath = path.join(dataDir, 'vessels_latest.json');
   await fs.writeFile(latestPath, JSON.stringify(reportData, null, 2));
