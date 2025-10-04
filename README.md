@@ -1,6 +1,6 @@
-# Flotilla Sumud 2025 - Automated Vessel Monitoring
+# FREEDOM FLOTILLA & CONSCIENCE EMAIL TRACKER
 
-Automated monitoring and hourly reporting system for the Global Sumud Flotilla vessel tracking website.
+Automated monitoring and hourly reporting system for the Freedom Flotilla Coalition vessel tracking website.
 
 ## Email Report Example
 
