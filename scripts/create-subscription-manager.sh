@@ -89,10 +89,12 @@ print_status "Generated security keys"
 # ================================================
 print_header "📁 Creating SvelteKit Project"
 
-print_progress "Initializing SvelteKit project..."
-npm create svelte@latest "$PROJECT_DIR" -- --template skeleton --types typescript --no-prettier --no-eslint --no-playwright --no-vitest
-
+print_progress "Creating project directory..."
+create_dir "$PROJECT_DIR"
 cd "$PROJECT_DIR"
+
+print_progress "Initializing SvelteKit project..."
+npx sv create . --template minimal --types ts --no-install
 
 # ================================================
 # Step 2: Install dependencies
