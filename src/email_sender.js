@@ -141,7 +141,7 @@ async function sendEmailReport(reportData) {
     const mailOptions = {
       from: `${config.smtp.senderName} <${config.smtp.senderEmail}>`,
       to: config.smtp.recipient,
-      subject: `Flotilla Sumud Report - ${reportData.report_generated_display} MYT`,
+      subject: `Freedom Flotilla Coalition Trackert - ${reportData.report_generated_display} MYT`,
       html: html,
       text: text
     };
