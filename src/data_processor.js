@@ -180,11 +180,15 @@ function processVesselData(vessels) {
     };
   });
 
-  // Sort by latest timestamp (most recent first)
+  // Sort by distance to Gaza (ascending - closest first)
   processedVessels.sort((a, b) => {
-    const timeA = moment(a.last_update_myt);
-    const timeB = moment(b.last_update_myt);
-    return timeB.diff(timeA); // Descending order
+    // Handle null distances (put them at the end)
+    if (a.distance_to_gaza_nm === null && b.distance_to_gaza_nm === null) return 0;
+    if (a.distance_to_gaza_nm === null) return 1;
+    if (b.distance_to_gaza_nm === null) return -1;
+
+    // Sort by distance ascending (closest to Gaza first)
+    return a.distance_to_gaza_nm - b.distance_to_gaza_nm;
   });
 
   // Calculate summary statistics
